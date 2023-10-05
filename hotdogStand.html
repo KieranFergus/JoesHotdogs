@@ -3,19 +3,15 @@
 
 <script>
 
-    /*item prices*/
+
     const hotdog = 3.75;
     const fries = 3.00;
     const drink = 2.50;
-    /*item prices*/
 
-    /*initializing # of requested items*/
     var numDogs = 0;
     var numFries = 0;
     var numDrinks = 0;
-    /*initializing # of requested items*/
 
-    /*ask customer for order*/
     numDogs = prompt("How many dogs d'ya want?", 0);
     if(isNaN(numDogs)){
         numDogs = 0;
@@ -37,7 +33,7 @@
     if(numDrinks <0){
         numDrinks = 0;
     }
-    /*ask customer for order*/
+
     
     
     var subtotal = 0;
@@ -62,19 +58,14 @@
     }
 
 
-
-
     function currencify(y){
         var word = y.toString();
         
-       if(word.length >= 3) {
-            if(word[word.length-2] == "."){
-                
-                word = word + 0;
-                
-            }
-        }
-        
+        if(word.length >= 3) {
+            if(word[word.length-2] == "."){  
+                word = word + 0;   
+                }
+            } 
         return ("$" + word);
     }
 
