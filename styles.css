@@ -1,0 +1,15 @@
+body {
+    background-color: #e89862;
+    
+}
+
+h1 {
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    font-size: 32px;
+    color: #fff;
+    background-color: #b8b8b8;
+    background-blend-mode: multiply;
+    background-image: url(images/glizzy.jpg);
+}
