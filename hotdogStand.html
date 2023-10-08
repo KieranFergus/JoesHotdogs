@@ -1,95 +1,113 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type = "text/css" href="styles.css" />
+    </head>
 
-<script>
+    <body>
 
+        <h1>
+            Joe's Hotdog Stand
 
-    const hotdog = 3.75;
-    const fries = 3.00;
-    const drink = 2.50;
-
-    var numDogs = 0;
-    var numFries = 0;
-    var numDrinks = 0;
-
-    numDogs = prompt("How many Hotdogs d'ya want?", 0);
-    if(isNaN(numDogs)){
-        numDogs = 0;
-    }
-    if(numDogs <0){
-        numDogs = 0;
-    }
-    numFries = prompt("How many French Fries d'ya want?", 0);
-    if(isNaN(numFries)){
-        numFries = 0;
-    }
-    if(numFries <0){
-        numFries = 0;
-    }
-    numDrinks = prompt("How many Drinks d'ya want?", 0);
-    if(isNaN(numDrinks)){
-        numDrinks = 0;
-    }
-    if(numDrinks <0){
-        numDrinks = 0;
-    }
-
-    
-    
-    var subtotal = 0;
-    subtotal = hotdog * numDogs + fries * numFries + drink * numDrinks;
-    pre_subtotal = subtotal;
-    if(subtotal >= 25){
-        subtotal *= 0.9;
-    }
-
-    subtotal = roundMe(subtotal);
-
-    
-
-    total = subtotal * 1.0625;
-    total = roundMe(total);
-
-    var taxes = total - subtotal;
-    taxes = roundMe(taxes);
-
-    function roundMe(x){
-        return Math.round(x*100)/100;
-    }
-
-
-    function currencify(y){
-        var word = y.toString();
+        </h1>
         
-        if(word.length >= 3) {
-            if(word[word.length-2] == "."){  
-                word = word + 0;   
-                }
-            } 
-        return ("$" + word);
-    }
 
+        <script>
+            const hotdog = 3.75;
+            const fries = 3.00;
+            const drink = 2.50;
+    
+            var numDogs = 0;
+            var numFries = 0;
+            var numDrinks = 0;
+    
+            numDogs = prompt("How many Hotdogs d'ya want?", 0);
+            if(isNaN(numDogs)){
+                numDogs = 0;
+            }
+            if(numDogs <0){
+                numDogs = 0;
+            }
+            numFries = prompt("How many French Fries d'ya want?", 0);
+            if(isNaN(numFries)){
+                numFries = 0;
+            }
+            if(numFries <0){
+                numFries = 0;
+            }
+            numDrinks = prompt("How many Drinks d'ya want?", 0);
+            if(isNaN(numDrinks)){
+                numDrinks = 0;
+            }
+            if(numDrinks <0){
+                numDrinks = 0;
+            }
+    
+            
+            
+            var subtotal = 0;
+            subtotal = hotdog * numDogs + fries * numFries + drink * numDrinks;
+            pre_subtotal = subtotal;
+            if(subtotal >= 25){
+                subtotal *= 0.9;
+            }
+    
+            subtotal = roundMe(subtotal);
+    
+            
+    
+            total = subtotal * 1.0625;
+            total = roundMe(total);
+    
+            var taxes = total - subtotal;
+            taxes = roundMe(taxes);
 
- 
-    document.write("YOUR ORDER: <br>" + 
-        numDogs + " Hotdogs <br>" +
-        numFries + " French Fries <br>" +
-        numDrinks + " Drinks <br><br>");
-
-    if(subtotal >= 25) {
-        document.write("Subtotal (pre-discount): " + currencify(pre_subtotal) +
-            "<br> Discount: 10%" + 
-            "<br> Subtotal (with discount): " + currencify(subtotal) +
-            "<br> Tax Amount: " + currencify(taxes) +
-            "<br> Total: " + currencify(total));
-    }
-    else {
-        document.write("Subtotal: " + currencify(subtotal) +
-            "<br> Discount: none" + 
-            "<br> Tax Amount: " + currencify(taxes) +
-            "<br> Total: " + currencify(total));
-    }
+            /*
+            roundMe: takes a number as an input and returns the number rounded to two decimal places
+            */
+            function roundMe(x){
+                return Math.round(x*100)/100;
+            }
+    
+            /*
+            currencify: takes a number as an input, turns it to a string and adds "$" to the front. Also adds a zero at the end to make the returned string readable as a dollar amount.
+            */
+            function currencify(y){
+                var word = y.toString();
+                
+                if(word.length >= 3) {
+                    if(word[word.length-2] == "."){  
+                        word = word + 0;   
+                        }
+                    } 
+                return ("$" + word);
+            }
+    
+    
         
+            document.write("YOUR ORDER: <br>" + 
+                numDogs + " Hotdogs <br>" +
+                numFries + " French Fries <br>" +
+                numDrinks + " Drinks <br><br>");
+    
+            if(subtotal >= 25) {
+                document.write("Subtotal (pre-discount): " + currencify(pre_subtotal) +
+                    "<br> Discount: 10%" + 
+                    "<br> Subtotal (with discount): " + currencify(subtotal) +
+                    "<br> Tax Amount: " + currencify(taxes) +
+                    "<br> Total: " + currencify(total));
+            }
+            else {
+                document.write("Subtotal: " + currencify(subtotal) +
+                    "<br> Discount: none" + 
+                    "<br> Tax Amount: " + currencify(taxes) +
+                    "<br> Total: " + currencify(total));
+            }
+        </script>
+
+    </body>
+    
+</html>   
 
     
 
