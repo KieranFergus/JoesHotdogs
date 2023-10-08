@@ -3,6 +3,12 @@ body {
     
 }
 
+.receipt {
+    font-size: 20px;
+    color: #fff
+    text-align: center;
+}
+
 h1 {
     width: 100%;
     height: 400px;
