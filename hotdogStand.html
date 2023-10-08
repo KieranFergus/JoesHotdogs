@@ -85,23 +85,29 @@
     
     
         
-            document.write("<br><br>YOUR ORDER: <br>" + 
+            document.write(<p id="receipt"> +
+                "<br><br>YOUR ORDER: <br>" + 
                 numDogs + " Hotdogs <br>" +
                 numFries + " French Fries <br>" +
-                numDrinks + " Drinks <br><br>");
+                numDrinks + " Drinks <br><br>" +
+                </p>);
     
             if(subtotal >= 25) {
-                document.write("Subtotal (pre-discount): " + currencify(pre_subtotal) +
+                document.write(<p id="receipt"> + 
+                    "Subtotal (pre-discount): " + currencify(pre_subtotal) +
                     "<br> Discount: 10%" + 
                     "<br> Subtotal (with discount): " + currencify(subtotal) +
                     "<br> Tax Amount: " + currencify(taxes) +
-                    "<br> Total: " + currencify(total));
+                    "<br> Total: " + currencify(total) +
+                    </p>);
             }
             else {
-                document.write("Subtotal: " + currencify(subtotal) +
+                document.write(<p id="receipt"> + 
+                    "Subtotal: " + currencify(subtotal) +
                     "<br> Discount: none" + 
                     "<br> Tax Amount: " + currencify(taxes) +
-                    "<br> Total: " + currencify(total));
+                    "<br> Total: " + currencify(total) + 
+                    </p>);
             }
         </script>
 
