@@ -11,7 +11,7 @@
 
         </h1>
         
-        
+
         <script>
             const hotdog = 3.75;
             const fries = 3.00;
@@ -42,8 +42,10 @@
             if(numDrinks <0){
                 numDrinks = 0;
             }
-    
-            
+
+            dogsPrice = roundMe(numDogs*hotdog);
+            friesPrice = roundMe(numFries*fries);
+            drinksPrice = roundMe(numDrinks*drink);
             
             var subtotal = 0;
             subtotal = hotdog * numDogs + fries * numFries + drink * numDrinks;
@@ -63,15 +65,20 @@
             taxes = roundMe(taxes);
 
             /*
-            roundMe: takes a number as an input and returns the number rounded to two decimal places
+            roundMe: 
+            input: a number 
+            purpose: rounds/truncates a number to two decimal places
+            returns: the number rounded and truncated to two decimal places
             */
             function roundMe(x){
                 return Math.round(x*100)/100;
             }
     
             /*
-            currencify: takes a number as an input, turns it to a string and adds "$" to the front. 
-            Also adds a zero at the end to make the returned string readable as a dollar amount.
+            currencify:
+            input:  a number
+            purpose: turns number to a string and adds "$" to the front. Also adds zeros at the end if necessary
+            returns: the number as a readble currency amount in string form  
             */
             function currencify(y){
                 var word = y.toString();
@@ -79,17 +86,41 @@
                 if(word.length >= 3) {
                     if(word[word.length-2] == "."){  
                         word = word + 0;   
-                        }
-                    } 
+                    }
+                }
+
+                if(!decimalPresent(word)){
+                    word = word + ".00";
+                }
+                
                 return ("$" + word);
+            }
+
+            /*
+            decimalPresent:
+            input: a string
+            purpose: detect a decimal point/period in a string
+            returns: true if there is a decimal present, false if not
+            */
+            function decimalPresent(z) {
+                for(var c=0;c<z.length;c++){
+                    if(z[c]=="."){
+                        return true;
+                    }
+                }
+                return false;
             }
     
     
         
-            document.write("<br><br>YOUR ORDER: <br>" + 
-                numDogs + " Hotdogs <br>" +
-                numFries + " French Fries <br>" +
-                numDrinks + " Drinks <br><br>");
+            document.write("<br><br> YOUR ORDER: <br>" + 
+                numDogs + " Hotdogs: " + 
+                currencify(dogsPrice) + "<br>" +
+                numFries + " French Fries: " + 
+                currencify(friesPrice) + "<br>" +
+                numDrinks + " Drinks: " + 
+                currencify(drinksPrice) + 
+                "<br><br> RECEIPT:<br>");
     
             if(subtotal >= 25) {
                 document.write("Subtotal (pre-discount): " + currencify(pre_subtotal) +
