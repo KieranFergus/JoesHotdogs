@@ -25,6 +25,9 @@
             if(isNaN(numDogs)){
                 numDogs = 0;
             }
+            if(numDogs == null){
+                numDogs = 0;
+            }
             if(numDogs <0){
                 numDogs = 0;
             }
@@ -32,11 +35,17 @@
             if(isNaN(numFries)){
                 numFries = 0;
             }
+            if(numFries == null){
+                numFries = 0;
+            }
             if(numFries <0){
                 numFries = 0;
             }
             numDrinks = prompt("How many Drinks d'ya want?", 0);
             if(isNaN(numDrinks)){
+                numDrinks = 0;
+            }
+            if(numDrinks == null){
                 numDrinks = 0;
             }
             if(numDrinks <0){
